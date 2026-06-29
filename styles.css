@@ -1,0 +1,108 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  background: #f0f0f0;
+  padding-bottom: 64px;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 14px 16px;
+}
+
+h1 {
+  font-size: 1.15rem;
+}
+
+main {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.event-name {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.event-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.event-controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+  cursor: pointer;
+  user-select: none;
+}
+
+.event-controls label:active {
+  background: #e8e8e8;
+}
+
+.event-controls input[type="checkbox"],
+.event-controls input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#total {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#reset-btn {
+  background: #cc2200;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0 18px;
+  height: 38px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#reset-btn:active {
+  background: #991a00;
+}
