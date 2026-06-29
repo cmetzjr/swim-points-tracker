@@ -28,39 +28,115 @@ main {
   gap: 10px;
 }
 
+/* Event card */
+
 .event {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Collapsible header */
+
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 14px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.event-header:active {
+  background: #f5f5f5;
 }
 
 .event-name {
   font-weight: 600;
-  margin-bottom: 10px;
+  flex: 1;
 }
+
+.event-subtotal {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.event-toggle {
+  font-size: 0.8rem;
+  color: #999;
+  transition: transform 0.2s ease;
+}
+
+.event.open .event-toggle {
+  transform: rotate(180deg);
+}
+
+/* Collapsible body */
+
+.event-body {
+  display: none;
+  border-top: 1px solid #eee;
+}
+
+.event.open .event-body {
+  display: block;
+}
+
+/* Sub-event rows */
+
+.sub-event {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sub-event:last-child {
+  border-bottom: none;
+}
+
+.sub-event:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.group-name {
+  font-size: 0.82rem;
+  width: 72px;
+  flex-shrink: 0;
+  color: #444;
+}
+
+/* Controls */
 
 .event-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+  flex: 1;
 }
 
 .event-controls label {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 6px 12px;
+  gap: 5px;
+  min-height: 40px;
+  padding: 4px 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  background: #fafafa;
+  background: #fff;
   cursor: pointer;
+  font-size: 0.9rem;
   user-select: none;
 }
 
+.sub-event:nth-child(even) .event-controls label {
+  background: #f2f2f2;
+}
+
 .event-controls label:active {
-  background: #e8e8e8;
+  background: #e0e0e0;
 }
 
 .event-controls input[type="checkbox"],
@@ -70,6 +146,8 @@ main {
   flex-shrink: 0;
   cursor: pointer;
 }
+
+/* Bottom bar */
 
 .bottom-bar {
   position: fixed;
