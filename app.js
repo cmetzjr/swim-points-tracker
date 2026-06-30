@@ -5,6 +5,8 @@ const COOKIE_DAYS = 30;
 
 const PLACES = ['1st', '2nd', '3rd', 'none'];
 const PLACE_POINTS = { '1st': 5, '2nd': 3, '3rd': 1, 'none': 0 };
+const INDIVIDUAL_MAX = 9;  // 5 + 3 + 1
+const RELAY_MAX = 7;
 
 const AGE_GROUPS_ALL = [
   'Girls 8U',   'Boys 8U',
@@ -170,6 +172,32 @@ function getEventPoints(event) {
   return pts;
 }
 
+function getThemPoints() {
+  let them = 0;
+  EVENTS.forEach(event => {
+    event.groups.forEach(group => {
+      const key = subKey(event.id, group);
+      if (event.type === 'relay') {
+        const checked = document.querySelector(`input[name="${key}"]:checked`);
+        if (checked) {
+          const ours = checked.value === 'win' ? RELAY_MAX : 0;
+          them += RELAY_MAX - ours;
+        }
+      } else {
+        const anyChecked = document.querySelector(`input[data-event="${key}"]:checked`);
+        if (anyChecked) {
+          let ours = 0;
+          document.querySelectorAll(`input[data-event="${key}"]:checked`).forEach(cb => {
+            ours += PLACE_POINTS[cb.dataset.place] || 0;
+          });
+          them += INDIVIDUAL_MAX - ours;
+        }
+      }
+    });
+  });
+  return them;
+}
+
 function updateTotals() {
   let grand = 0;
   EVENTS.forEach(event => {
@@ -177,7 +205,8 @@ function updateTotals() {
     document.getElementById(`subtotal-${event.id}`).textContent = `${pts} pts`;
     grand += pts;
   });
-  document.getElementById('total').textContent = `Total: ${grand} pts`;
+  document.getElementById('us').textContent = `Us: ${grand} pts`;
+  document.getElementById('them').textContent = `Them: ${getThemPoints()} pts`;
 }
 
 // --- State persistence ---
