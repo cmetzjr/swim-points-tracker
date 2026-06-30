@@ -33,16 +33,20 @@ p  {
      text-wrap: balance;
 }
 
+.info p {
+  font-size: .85rem;
+}
+
 li {
   margin-inline-start: 2rem;
-  padding-block: .1rem;
+  padding-block: .15rem;
 
   &:first-of-type {
     margin-block-start: 1rem;
   }
 }
 
-section {
+section, aside {
   padding: 12px;
 }
 
