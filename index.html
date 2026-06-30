@@ -9,10 +9,19 @@
 <body>
 
   <header>
-    <h1>Swim Meet Tracker</h1>
+    <h1>Tri-County Dual Meet Points Tracker</h1>
   </header>
 
-  <main id="events-container"></main>
+  <main id="events-container">
+    <section class="intro">
+      <p>This is a free web app for tracking the points accumulated during dual meets in <a href="https://tricoswim.org/" target="_blank">Tri-County Swimming Pool Association</a>. No login, email, or installation is required. How it works:</p>
+        <ul class="intro__list">
+          <li class="intro__list-item">Track your team's points for each event by checking the appropriate box.</li>
+          <li class="intro__list-item">Scores for both teams update at the bottom in real-time.</li>
+          <li class="intro__list-item">Points are saved in the browser for 30 days, or until you hit "reset".</li>
+        </ul>
+    </section>
+  </main>
 
   <div class="bottom-bar">
     <div class="scores">
@@ -21,6 +30,7 @@
     </div>
     <button id="reset-btn">Reset</button>
   </div>
+
 
   <script src="app.js"></script>
 </body>

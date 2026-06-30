@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+p + p {
+    margin-block-start: 1.5rem;
+  }
+
+:root {
+  scrollbar-color: #002f47;
+  }
+
 body {
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 16px;
@@ -19,6 +27,23 @@ header {
 
 h1 {
   font-size: 1.15rem;
+}
+
+p  {
+     text-wrap: balance;
+}
+
+li {
+  margin-inline-start: 2rem;
+  padding-block: .1rem;
+
+  &:first-of-type {
+    margin-block-start: 1rem;
+  }
+}
+
+section {
+  padding: 12px;
 }
 
 main {
